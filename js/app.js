@@ -27,15 +27,43 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Hero {
     constructor(){
-
-      this.x = 0;
-      this.y = 0;
+      this.movex = 101;
+      this.movey = 83;
+      this.startx =  this.movex * 2;
+      this.starty = (this.movey * 5) - 20;
       this.sprite = "images/char-boy.png";
-      console.log('beep')
+      this.x = this.startx;
+      this.y = this.starty;
     }
 //Draw the hero on the x and y
 render (){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+
+  handleInput(input){
+          switch (input) {
+      case 'left':
+      if (this.x > 0){
+        this.x -= this.movex;
+      }
+          break;
+      case 'up':
+      if(this.y > 0){
+        this.y -= this.movey;
+      }
+          break;
+      case 'right':
+        if (this.x < this.movex * 4){
+        this.x += this.movex;
+      }
+          break;
+      case 'down':
+      if (this.y < this.movey * 4){
+        this.y += this.movey;
+      }
+          break;
+
+    }
   }
 }
 
