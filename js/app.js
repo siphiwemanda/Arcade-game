@@ -6,6 +6,8 @@ var Enemy = function() {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.x = 101;
+    this.y = 83;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -68,11 +70,13 @@ render (){
 }
 
 const player = new Hero();
-
+const ladybug1 = new Enemy();
+const allEnemies =[];
+allEnemies.push(ladybug1);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-//var allEnemies = [];
+
 // Place the player object in a variable called player
 
 
