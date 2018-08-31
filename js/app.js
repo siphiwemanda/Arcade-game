@@ -82,9 +82,13 @@ render (){
 }
 
 const player = new Hero();
-const ladybug1 = new Enemy(-101, 0);
-const ladybug2 = new Enemy(-101, 85);
-const ladybug3 = new Enemy(-101*4, 0);
+const ladybug1 = new Enemy();
+ladybug1.x = 70;
+ladybug1.y = 150;
+const ladybug2 = new Enemy();
+ladybug2.x = -500;
+ladybug2.y - 500;
+const ladybug3 = new Enemy();
 const allEnemies =[];
 allEnemies.push(ladybug1, ladybug2, ladybug3);
 
