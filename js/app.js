@@ -9,7 +9,10 @@ var Enemy = function() {
 
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
-    this.y = 0;
+    this.y = 55;
+    this.movex = 101;
+    this.start1 = -this.movex;
+
     console.log('beep')
 };
 
@@ -18,13 +21,19 @@ var Enemy = function() {
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
+    if (this.x < this.movex * 5){
+    this.x += 100 * dt;
+  }
+  else{
+    this.x = this.start1;
+  }
     // all computers.
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    
+
 };
 
 // Now write your own player class
@@ -73,9 +82,11 @@ render (){
 }
 
 const player = new Hero();
-const ladybug1 = new Enemy();
+const ladybug1 = new Enemy(-101, 0);
+const ladybug2 = new Enemy(-101, 85);
+const ladybug3 = new Enemy(-101*4, 0);
 const allEnemies =[];
-allEnemies.push(ladybug1);
+allEnemies.push(ladybug1, ladybug2, ladybug3);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
