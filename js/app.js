@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     if (this.x < this.movex * 5){
-    this.x += 100 * dt;
+    this.x += this.speed * dt;
   }
   else{
     this.x = this.start1;
@@ -83,15 +83,15 @@ render (){
 }
 
 const player = new Hero();
-const ladybug1 = new Enemy (-101, 0, 100);
+const ladybug1 = new Enemy (-101, 0, 200);
 //ladybug1.x = -101;
 //ladybug1.y = 0;
-const ladybug2 = new Enemy (-101, 83, 500);
+const ladybug2 = new Enemy (-101, 83, 300);
 //ladybug2.x = -101;
 //ladybug2.y - 83;
-const ladybug3 = new Enemy ((-101*2.5), 83, 350);
-const ladybug4 = new Enemy ((-101*2.5), 166, 250);
-const ladybug5 = new Enemy ((-101*5), 166, 1000);
+const ladybug3 = new Enemy ((-101*2.5), 83, 290);
+const ladybug4 = new Enemy ((-101*2.5), 166, 310);
+const ladybug5 = new Enemy ((-101*5), 166, 300);
 
 const allEnemies =[];
 allEnemies.push(ladybug1, ladybug2, ladybug3, ladybug4, ladybug5);
