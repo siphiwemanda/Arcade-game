@@ -1,6 +1,6 @@
 
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -8,10 +8,11 @@ var Enemy = function() {
     // a helper we've provided to easily load images
 
     this.sprite = 'images/enemy-bug.png';
-    this.x = 0;
-    this.y = 55;
+    this.x = x;
+    this.y = y + 55;
     this.movex = 101;
     this.start1 = -this.movex;
+    this.speed = speed;
 
     console.log('beep')
 };
@@ -82,15 +83,18 @@ render (){
 }
 
 const player = new Hero();
-const ladybug1 = new Enemy();
-ladybug1.x = 70;
-ladybug1.y = 150;
-const ladybug2 = new Enemy();
-ladybug2.x = -500;
-ladybug2.y - 500;
-const ladybug3 = new Enemy();
+const ladybug1 = new Enemy (-101, 0, 100);
+//ladybug1.x = -101;
+//ladybug1.y = 0;
+const ladybug2 = new Enemy (-101, 83, 500);
+//ladybug2.x = -101;
+//ladybug2.y - 83;
+const ladybug3 = new Enemy ((-101*2.5), 83, 350);
+const ladybug4 = new Enemy ((-101*2.5), 166, 250);
+const ladybug5 = new Enemy ((-101*5), 166, 1000);
+
 const allEnemies =[];
-allEnemies.push(ladybug1, ladybug2, ladybug3);
+allEnemies.push(ladybug1, ladybug2, ladybug3, ladybug4, ladybug5);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
