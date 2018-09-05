@@ -17,11 +17,11 @@ starty=5;
 var Enemy = function(x,y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    
-    
+
+
     this.sprite = 'images/enemy-bug.png';
     this.x=x;
     this.y=y;
@@ -29,7 +29,7 @@ var Enemy = function(x,y, speed) {
     this.actualy = miny + y*incy;
     this.start = 0;
     this.speed = speed;
-    
+
     console.log('beep')
 };
 
@@ -51,14 +51,14 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.actualx, this.actualy);
-    
+
 };
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Hero {    
-    
+class Hero {
+
     constructor(){
 	this.sprite = "images/char-boy.png";
 	this.actualx = minx+incx*startx;
@@ -66,13 +66,13 @@ class Hero {
 	this.x=startx;
 	this.y=starty;
     }
-    
-    
+
+
     //Draw the hero on the x and y
     render (){
 	ctx.drawImage(Resources.get(this.sprite), this.actualx, this.actualy);
     }
-    
+
     handleInput(input){
         switch (input) {
 	case 'left':
@@ -99,18 +99,18 @@ class Hero {
 		this.y+=1;
 	    }
             break;
-	    
+
 	}
     }
     update(){
 	for(let enemy of allEnemies){
 	    if(this.y === enemy.y && this.x===enemy.x){
-		console.log('colide')
+		alert('colide')
 		//console.log(enemy.x, enemy.y)
 	    }
 	    console.log(enemy.x, enemy.y)
 	    console.log(this.x, this.y)
-	    
+
 	}
     }
 }
