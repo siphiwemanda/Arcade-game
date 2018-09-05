@@ -45,7 +45,7 @@ class Hero {
       this.movex = 101;
       this.movey = 83;
       this.startx =  this.movex * 2;
-      this.starty = (this.movey * 5) - 20;
+      this.starty = (this.movey * 4) + 55;
       this.sprite = "images/char-boy.png";
       this.x = this.startx;
       this.y = this.starty;
@@ -78,6 +78,17 @@ render (){
       }
           break;
 
+    }
+  }
+  update(){
+    for(let enemy of allEnemies){
+      //console.log(enemy);
+      if(this.y === enemy.y){
+        //&& (enemy.x + enemy.movex > this.x
+        //&& enemy.x < this.movex)){
+        console.log('colide')
+      }
+      console.log(this.y, enemy.y)
     }
   }
 }
