@@ -1,19 +1,35 @@
+//Variables so that grid becomes readable
+
+//size of grid squares
+incx=101;
+incy=83;
+gridsizex=5;
+gridsizey=6;
+//coordinates of top left point
+minx=0;
+miny=-28;
+//Starting point of hero character
+startx=2;
+starty=5;
+
 
 // Enemies our player must avoid
 var Enemy = function(x,y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-
+    
+    
     this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y + 55;
-    this.movex = 101;
-    this.start1 = -this.movex;
+    this.x=x;
+    this.y=y;
+    this.actualx = minx + x*incx;
+    this.actualy = miny + y*incy;
+    this.start = 0;
     this.speed = speed;
-
+    
     console.log('beep')
 };
 
@@ -22,90 +38,96 @@ var Enemy = function(x,y, speed) {
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
-    if (this.x < this.movex * 5){
-    this.x += this.speed * dt;
-  }
-  else{
-    this.x = this.start1;
-  }
+    if (this.actualx < (incx * gridsizex)){
+	this.actualx += this.speed * dt;
+	this.x=Math.floor(this.actualx/incx);
+    }
+    else{
+	this.actualx = this.start;
+    }
     // all computers.
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
+    ctx.drawImage(Resources.get(this.sprite), this.actualx, this.actualy);
+    
 };
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Hero {
+class Hero {    
+    
     constructor(){
-      this.movex = 101;
-      this.movey = 83;
-      this.startx =  this.movex * 2;
-      this.starty = (this.movey * 4) + 55;
-      this.sprite = "images/char-boy.png";
-      this.x = this.startx;
-      this.y = this.starty;
+	this.sprite = "images/char-boy.png";
+	this.actualx = minx+incx*startx;
+	this.actualy = miny+incy*starty;
+	this.x=startx;
+	this.y=starty;
     }
-//Draw the hero on the x and y
-render (){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
-
-  handleInput(input){
-          switch (input) {
-      case 'left':
-      if (this.x > 0){
-        this.x -= this.movex;
-      }
-          break;
-      case 'up':
-      if(this.y > 0){
-        this.y -= this.movey;
-      }
-          break;
-      case 'right':
-        if (this.x < this.movex * 4){
-        this.x += this.movex;
-      }
-          break;
-      case 'down':
-      if (this.y < this.movey * 4){
-        this.y += this.movey;
-      }
-          break;
-
+    
+    
+    //Draw the hero on the x and y
+    render (){
+	ctx.drawImage(Resources.get(this.sprite), this.actualx, this.actualy);
     }
-  }
-  update(){
-    for(let enemy of allEnemies){
-      if(this.y === enemy.y && (enemy.x + enemy.movex > this.x
-        && enemy.x < this.movex)){
-        console.log('colide')
-      }
-      //console.log(this.y, enemy.y)
+    
+    handleInput(input){
+        switch (input) {
+	case 'left':
+	    if (this.actualx > minx){
+		this.actualx -= incx;
+		this.x-=1;
+	    }
+            break;
+	case 'up':
+	    if(this.actualy > miny){
+		this.actualy -= incy;
+		this.y-=1;
+	    }
+            break;
+	case 'right':
+	    if (this.actualx < (minx + (incx * (gridsizex-1)))){
+		this.actualx += incx;
+		this.x+=1;
+	    }
+            break;
+	case 'down':
+	    if (this.actualy < (miny + (incy * (gridsizey-1)))){
+		this.actualy += incy;
+		this.y+=1;
+	    }
+            break;
+	    
+	}
     }
-  }
-
+    update(){
+	for(let enemy of allEnemies){
+	    if(this.y === enemy.y && this.x===enemy.x){
+		console.log('colide')
+		//console.log(enemy.x, enemy.y)
+	    }
+	    console.log(enemy.x, enemy.y)
+	    console.log(this.x, this.y)
+	    
+	}
+    }
 }
 
 
+
+
 const player = new Hero();
-const ladybug1 = new Enemy (-101, 0, 200);
-//ladybug1.x = -101;
-//ladybug1.y = 0;
-const ladybug2 = new Enemy (-101, 83, 300);
-//ladybug2.x = -101;
-//ladybug2.y - 83;
-const ladybug3 = new Enemy ((-101*2.5), 83, 290);
-const ladybug4 = new Enemy ((-101*2.5), 166, 310);
-const ladybug5 = new Enemy ((-101*5), 166, 300);
+const ladybug1 = new Enemy (0, 1, 200);
+
+const ladybug2 = new Enemy (0, 2, 300);
+
+const ladybug3 = new Enemy (0, 3, 290);
+
 
 const allEnemies =[];
-allEnemies.push(ladybug1, ladybug2, ladybug3, ladybug4, ladybug5);
+allEnemies.push(ladybug1, ladybug2, ladybug3);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
