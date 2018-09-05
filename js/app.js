@@ -82,16 +82,16 @@ render (){
   }
   update(){
     for(let enemy of allEnemies){
-      //console.log(enemy);
-      if(this.y === enemy.y){
-        //&& (enemy.x + enemy.movex > this.x
-        //&& enemy.x < this.movex)){
+      if(this.y === enemy.y && (enemy.x + enemy.movex > this.x
+        && enemy.x < this.movex)){
         console.log('colide')
       }
-      console.log(this.y, enemy.y)
+      //console.log(this.y, enemy.y)
     }
   }
+
 }
+
 
 const player = new Hero();
 const ladybug1 = new Enemy (-101, 0, 200);
