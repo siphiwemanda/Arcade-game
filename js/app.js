@@ -29,8 +29,6 @@ var Enemy = function(x,y, speed) {
     this.actualy = miny + y*incy;
     this.start = 0;
     this.speed = speed;
-
-    console.log('beep')
 };
 
 // Update the enemy's position, required method for game
@@ -111,15 +109,23 @@ class Hero {
           icon: "error",
           button: "Try Again",
 });
-		//console.log(enemy.x, enemy.y)
+this.actualx = minx+incx*startx;
+this.actualy = miny+incy*starty;
+this.x=startx;
+this.y=starty;
+    console.log('beep')
 	    }
       if (this.actualy < (miny+incy)){
-        //console.log('you win')
+      //console.log('you win')
         swal({
           title: "You made it!",
           text: "Play again!",
           icon: "success",
 });
+this.actualx = minx+incx*startx;
+this.actualy = miny+incy*starty;
+this.x=startx;
+this.y=starty;
 
       }
 	    //console.log(enemy.x, enemy.y)
