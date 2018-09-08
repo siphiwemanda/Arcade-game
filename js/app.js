@@ -105,11 +105,25 @@ class Hero {
     update(){
 	for(let enemy of allEnemies){
 	    if(this.y === enemy.y && this.x===enemy.x){
-		alert('colide')
+		swal({
+          title: "Colision!",
+          text: "oh no the ladybugs got you!",
+          icon: "error",
+          button: "Try Again",
+});
 		//console.log(enemy.x, enemy.y)
 	    }
-	    console.log(enemy.x, enemy.y)
-	    console.log(this.x, this.y)
+      if (this.actualy < (miny+incy)){
+        //console.log('you win')
+        swal({
+          title: "You made it!",
+          text: "Play again!",
+          icon: "success",
+});
+
+      }
+	    //console.log(enemy.x, enemy.y)
+	    //console.log(this.x, this.y)
 
 	}
     }
