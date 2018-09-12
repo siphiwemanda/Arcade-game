@@ -63,6 +63,7 @@ class Hero {
 	this.actualy = miny+incy*starty;
 	this.x=startx;
 	this.y=starty;
+  this.win = false
     }
 
 
@@ -113,7 +114,7 @@ this.actualx = minx+incx*startx;
 this.actualy = miny+incy*starty;
 this.x=startx;
 this.y=starty;
-    console.log('beep')
+  //  console.log('beep')
 	    }
       if (this.actualy < (miny+incy)){
       //console.log('you win')
