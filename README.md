@@ -1,9 +1,19 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Game can be found here: 
+Game can be found here:
 https://siphiwemanda.github.io/arcade_game/
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+This is a project for the Front End Nanodegree.
+This clasic arcade game is played by trying to move the Hero from the grass to the water
+you should attempt to avoid the ladybugs crossing the road.
+the game uses the arrows on the keyboard, to move the Hero character across the board
+you can move right, left, up and down but only within the playing space
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+you can open the game by following the link above or by downloading this repositry and opening the index file 
+
+
+
+Nanodegree instructions
+=======================
+Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission.

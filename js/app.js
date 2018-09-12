@@ -1,5 +1,3 @@
-//Variables so that grid becomes readable
-
 //size of grid squares
 incx=101;
 incy=83;
@@ -12,16 +10,8 @@ miny=-28;
 startx=2;
 starty=5;
 
-
 // Enemies our player must avoid
 var Enemy = function(x,y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-
-
     this.sprite = 'images/enemy-bug.png';
     this.x=x;
     this.y=y;
@@ -43,7 +33,7 @@ Enemy.prototype.update = function(dt) {
     else{
 	this.actualx = this.start;
     }
-    // all computers.
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -52,9 +42,7 @@ Enemy.prototype.render = function() {
 
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//Player class
 class Hero {
 
     constructor(){
@@ -77,67 +65,58 @@ class Hero {
 	case 'left':
 	    if (this.actualx > minx){
 		this.actualx -= incx;
-		this.x-=1;
-	    }
+		this.x-=1;}
             break;
 	case 'up':
 	    if(this.actualy > miny){
 		this.actualy -= incy;
-		this.y-=1;
-	    }
+		this.y-=1;}
             break;
 	case 'right':
 	    if (this.actualx < (minx + (incx * (gridsizex-1)))){
 		this.actualx += incx;
-		this.x+=1;
-	    }
+		this.x+=1;}
             break;
 	case 'down':
 	    if (this.actualy < (miny + (incy * (gridsizey-1)))){
 		this.actualy += incy;
-		this.y+=1;
-	    }
+		this.y+=1;}
             break;
-
-	}
+          }
     }
+
     update(){
 	for(let enemy of allEnemies){
 	    if(this.y === enemy.y && this.x===enemy.x){
-		swal({
+		     swal({
           title: "Colision!",
           text: "oh no the ladybugs got you!",
           icon: "error",
           button: "Try Again",
-});
-this.actualx = minx+incx*startx;
-this.actualy = miny+incy*starty;
-this.x=startx;
-this.y=starty;
-  //  console.log('beep')
-	    }
+          });
+    this.actualx = minx+incx*startx;
+    this.actualy = miny+incy*starty;
+    this.x=startx;
+    this.y=starty;}
       if (this.actualy < (miny+incy)){
-      //console.log('you win')
         swal({
           title: "You made it!",
           text: "Play again!",
           icon: "success",
-});
-this.actualx = minx+incx*startx;
-this.actualy = miny+incy*starty;
-this.x=startx;
-this.y=starty;
-
-      }
-	    //console.log(enemy.x, enemy.y)
-	    //console.log(this.x, this.y)
-
-	}
+          });
+    this.actualx = minx+incx*startx;
+    this.actualy = miny+incy*starty;
+    this.x=startx;
+    this.y=starty;}
     }
+  }
 }
 
 
 
+// Now instantiate your objects.
+// Place all enemy objects in an array called allEnemies
+// Place the player object in a variable called player
 
 const player = new Hero();
 const ladybug1 = new Enemy (0, 1, 200);
@@ -149,12 +128,6 @@ const ladybug3 = new Enemy (0, 3, 290);
 
 const allEnemies =[];
 allEnemies.push(ladybug1, ladybug2, ladybug3);
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-
-// Place the player object in a variable called player
-
 
 
 // This listens for key presses and sends the keys to your
