@@ -1,14 +1,15 @@
 //size of grid squares
-incx=101;
-incy=83;
-gridsizex=5;
-gridsizey=6;
+'use strict';
+const incx=101;
+const incy=83;
+const gridsizex=5;
+const gridsizey=6;
 //coordinates of top left point
-minx=0;
-miny=-28;
+const minx=0;
+const miny=-28;
 //Starting point of hero character
-startx=2;
-starty=5;
+const startx=2;
+const starty=5;
 
 // Enemies our player must avoid
 var Enemy = function(x,y, speed) {
@@ -93,24 +94,34 @@ class Hero {
           icon: "error",
           button: "Try Again",
           });
-    this.actualx = minx+incx*startx;
-    this.actualy = miny+incy*starty;
-    this.x=startx;
-    this.y=starty;}
+    //this.actualx = minx+incx*startx;
+    //this.actualy = miny+incy*starty;
+    //this.x=startx;
+    //this.y=starty;
+    this.reset()}
+
       if (this.actualy < (miny+incy)){
         swal({
           title: "You made it!",
           text: "Play again!",
           icon: "success",
           });
-    this.actualx = minx+incx*startx;
-    this.actualy = miny+incy*starty;
-    this.x=startx;
-    this.y=starty;}
+    //this.actualx = minx+incx*startx;
+    //this.actualy = miny+incy*starty;
+    //this.x=startx;
+    //this.y=starty;
+  this.reset()}
     }
   }
 }
 
+function reset() {
+  this.actualx = minx+incx*startx;
+  this.actualy = miny+incy*starty;
+  this.x=startx;
+  this.y=starty;
+
+}
 
 
 // Now instantiate your objects.
