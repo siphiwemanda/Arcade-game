@@ -51,7 +51,6 @@ class Hero {
 	this.actualy = miny+incy*starty;
 	this.x=startx;
 	this.y=starty;
-  this.win = false
     }
 
 

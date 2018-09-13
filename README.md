@@ -1,4 +1,4 @@
-frontend-nanodegree-arcade-game
+Classic Arcade Game
 ===============================
 
 This is a project for the Front End Nanodegree.
