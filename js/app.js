@@ -20,19 +20,7 @@ var Enemy = function(x,y, speed) {
     this.actualy = miny + y*incy;
     this.start = 0;
     this.speed = speed;
-
-
-
 };
-
-
-//function reset() {
- // this.actualx = minx+incx*startx;
-  //this.actualy = miny+incy*starty;
-  //this.x=startx;
-  //this.y=starty;
-
-//}
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -73,8 +61,6 @@ class Hero {
 	this.y=starty;
 
     };
-
-
     //Draw the hero on the x and y
     render (){
 	ctx.drawImage(Resources.get(this.sprite), this.actualx, this.actualy);
@@ -113,30 +99,19 @@ class Hero {
           text: "oh no the ladybugs got you!",
           icon: "error",
           button: "Try Again",
-          });
-    //this.actualx = minx+incx*startx;
-    //this.actualy = miny+incy*starty;
-    //this.x=startx;
-    //this.y=starty;
-		this.reset();}
-
+        });
+		this.reset();
+  }
       if (this.actualy < (miny+incy)){
         swal({
           title: "You made it!",
           text: "Play again!",
           icon: "success",
           });
-    //this.actualx = minx+incx*startx;
-    //this.actualy = miny+incy*starty;
-    //this.x=startx;
-    //this.y=starty;
 	  this.reset();}
     }
   }
 }
-
-
-
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
