@@ -20,7 +20,19 @@ var Enemy = function(x,y, speed) {
     this.actualy = miny + y*incy;
     this.start = 0;
     this.speed = speed;
+
+    
+	
 };
+
+
+//function reset() {
+ // this.actualx = minx+incx*startx;
+  //this.actualy = miny+incy*starty;
+  //this.x=startx;
+  //this.y=starty;
+
+//}
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -53,6 +65,14 @@ class Hero {
 	this.x=startx;
 	this.y=starty;
     }
+
+    reset(){
+	this.actualx = minx+incx*startx;
+	this.actualy = miny+incy*starty;
+	this.x=startx;
+	this.y=starty;
+
+    };
 
 
     //Draw the hero on the x and y
@@ -98,7 +118,7 @@ class Hero {
     //this.actualy = miny+incy*starty;
     //this.x=startx;
     //this.y=starty;
-    this.reset()}
+		this.reset();}
 
       if (this.actualy < (miny+incy)){
         swal({
@@ -110,18 +130,12 @@ class Hero {
     //this.actualy = miny+incy*starty;
     //this.x=startx;
     //this.y=starty;
-  this.reset()}
+	  this.reset();}
     }
   }
 }
 
-function reset() {
-  this.actualx = minx+incx*startx;
-  this.actualy = miny+incy*starty;
-  this.x=startx;
-  this.y=starty;
 
-}
 
 
 // Now instantiate your objects.
