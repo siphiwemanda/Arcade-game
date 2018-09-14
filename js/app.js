@@ -21,8 +21,8 @@ var Enemy = function(x,y, speed) {
     this.start = 0;
     this.speed = speed;
 
-    
-	
+
+
 };
 
 
@@ -41,7 +41,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     if (this.actualx < (incx * gridsizex)){
 	this.actualx += this.speed * dt;
-	this.x=Math.floor(this.actualx/incx);
+	this.x=Math.round(this.actualx/incx);
     }
     else{
 	this.actualx = this.start;
