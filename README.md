@@ -10,7 +10,7 @@ you can move right, left, up and down but only within the playing space.
 You can open the game by following the link above or by downloading this repository and opening the index file.
 
 Game can be found here:
-https://siphiwemanda.github.io/arcade_game/
+https://siphiwemanda.github.io/Arcade-game/
 
 The game utilises the following
 * Sweetalert https://sweetalert.js.org/guides/ for the alert function
