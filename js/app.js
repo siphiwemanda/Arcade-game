@@ -12,12 +12,12 @@ const startx=2;
 const starty=5;
 
 // Enemies our player must avoid
-var Enemy = function(x,y, speed) {
+const Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
-    this.x=x;
-    this.y=y;
-    this.actualx = minx + x*incx;
-    this.actualy = miny + y*incy;
+    this.x = x;
+    this.y = y;
+    this.actualx = minx + x * incx;
+    this.actualy = miny + y * incy;
     this.start = 0;
     this.speed = speed;
 };
@@ -119,9 +119,7 @@ class Hero {
 
 const player = new Hero();
 const ladybug1 = new Enemy (0, 1, 200);
-
 const ladybug2 = new Enemy (0, 2, 300);
-
 const ladybug3 = new Enemy (0, 3, 290);
 
 
@@ -132,7 +130,7 @@ allEnemies.push(ladybug1, ladybug2, ladybug3);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
